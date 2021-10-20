@@ -1,0 +1,35 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <Authors>Erik Knudsen</Authors>
+    <NeutralLanguage>en-US</NeutralLanguage>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
+    <Authors>Erik Knudsen</Authors>
+    <Owners>eknudsen</Owners>
+    <NeutralLanguage>en-US</NeutralLanguage>
+    <Company />
+    <Title>MMG Data Model</Title>
+    <Description>A data model for message mapping guides.</Description>
+    <PackageDescription>A data model for message mapping guides.</PackageDescription>
+    <Copyright>Copyright © 2020 Erik Knudsen</Copyright>
+    <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
+    <PackageTags>hl7v2</PackageTags>
+    <PackageProjectUrl>https://github.com/</PackageProjectUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageVersion>0.0.1</PackageVersion>
+    <Version>0.0.1</Version>
+    <LangVersion>latest</LangVersion>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="All" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+    <PackageReference Include="System.Text.Json" Version="4.7.2" />
+  </ItemGroup>
+
+</Project>

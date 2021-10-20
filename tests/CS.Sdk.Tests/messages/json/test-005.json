@@ -1,0 +1,441 @@
+{
+  "transaction_id": "944a6150-53a8-4262-80d6-0be0299097c8",
+  "source_format": "HL7v2",
+  "datetime_of_message": "2014-06-30T17:00:30",
+  "unique_case_id": "09_BABESIOSIS_TC01",
+  "message_profile_identifier": "Babesiosis_MMG_V1.0",
+  "message_profile_identifiers": [
+    "NOTF_ORU_v3.0",
+    "Generic_MMG_V2.0",
+    "Babesiosis_MMG_V1.0"
+  ],
+  "local_subject_id": "BABESIOSIS_TC01",
+  "birth_date": "1937-03-13T00:00:00",
+  "subjects_sex__code": "M",
+  "race_category": [
+    {
+      "race_category": "White",
+      "race_category__code": "2106-3",
+      "race_category__code_system": "CDCREC"
+    }
+  ],
+  "ethnic_group": [
+    {
+      "ethnic_group": "Not Hispanic or Latino",
+      "ethnic_group__code": "2186-5",
+      "ethnic_group__code_system": "CDCREC"
+    }
+  ],
+  "country_of_birth": "UNITED STATES",
+  "country_of_birth__code": "USA",
+  "country_of_birth__code_system": "ISO3166_1",
+  "country_of_usual_residence": "UNITED STATES",
+  "country_of_usual_residence__code": "USA",
+  "country_of_usual_residence__code_system": "ISO3166_1",
+  "subject_address_county__code": "09011",
+  "subject_address_state__code": "09",
+  "subject_address_zip_code": "6320",
+  "date_of_illness_onset": "2015-05-15T00:00:00",
+  "illness_end_date": "2015-05-30T00:00:00",
+  "illness_duration": 15,
+  "illness_duration_units": "day",
+  "illness_duration_units__code": "d",
+  "illness_duration_units__code_system": "UCUM",
+  "diagnosis_date": "2015-05-15T00:00:00",
+  "hospitalized": "No",
+  "hospitalized__code": "N",
+  "hospitalized__code_system": "HL70136",
+  "subject_died": "Unknown",
+  "subject_died__code": "UNK",
+  "subject_died__code_system": "NULLFL",
+  "condition_code": "Babesiosis",
+  "condition_code__code": "12010",
+  "condition_code__code_system": "NND",
+  "local_record_id": "BABESIOSIS_TC01",
+  "state_case_identifier": "340227",
+  "legacy_case_identifier": "34022748S012014",
+  "age_at_case_investigation": 78,
+  "age_unit_at_case_investigation": "year [time]",
+  "age_unit_at_case_investigation__code": "a",
+  "age_unit_at_case_investigation__code_system": "UCUM",
+  "case_disease_imported_code": "Indigenous",
+  "case_disease_imported_code__code": "PHC244",
+  "case_disease_imported_code__code_system": "CDCPHINVS",
+  "repeating_variables_for_disease_exposure": [
+    {
+      "country_of_exposure": "UNITED STATES",
+      "country_of_exposure__code": "USA",
+      "country_of_exposure__code_system": "ISO3166_1",
+      "state_or_province_of_exposure": "Connecticut",
+      "state_or_province_of_exposure__code": "09",
+      "state_or_province_of_exposure__code_system": "FIPS5_2",
+      "city_of_exposure": "New London, CT",
+      "county_of_exposure": "New London, CT"
+    }
+  ],
+  "case_class_status_code": "Confirmed present",
+  "case_class_status_code__code": "410605003",
+  "case_class_status_code__code_system": "SCT",
+  "immediate_national_notifiable_condition": "No",
+  "immediate_national_notifiable_condition__code": "N",
+  "immediate_national_notifiable_condition__code_system": "HL70136",
+  "case_outbreak_indicator": "No",
+  "case_outbreak_indicator__code": "N",
+  "case_outbreak_indicator__code_system": "HL70136",
+  "notification_result_status": "Final results; Can only be changed with a corrected result.",
+  "notification_result_status__code": "F",
+  "notification_result_status__code_system": "HL7",
+  "jurisdiction_code": "S01",
+  "reporting_source_type_code": "Public Health Clinic",
+  "reporting_source_type_code__code": "PHC251",
+  "reporting_source_type_code__code_system": "CDCPHINVS",
+  "reporting_source_zip_code": "06320",
+  "person_reporting_to_cdc_name": "Smith, John",
+  "person_reporting_to_cdc_phone_number": "(722) 277-4477",
+  "person_reporting_to_cdc_email": "Smith@you.com",
+  "case_investigation_start_date": "2015-05-15T00:00:00",
+  "date_first_electronically_submitted": "2015-08-05T15:00:00",
+  "date_of_electronic_case_notification_to_cdc": "2015-08-05T15:00:00",
+  "date_reported": "2015-08-01T00:00:00",
+  "earliest_date_reported_to_county": "2015-08-01T00:00:00",
+  "earliest_date_reported_to_state": "2015-08-08T00:00:00",
+  "mmwr_week": 32,
+  "mmwr_year": "2015",
+  "date_first_reported_to_phd": "2015-08-08T00:00:00",
+  "reporting_state": "Connecticut",
+  "reporting_state__code": "09",
+  "reporting_state__code_system": "FIPS5_2",
+  "national_reporting_jurisdiction": "CT",
+  "national_reporting_jurisdiction__code": "09",
+  "national_reporting_jurisdiction__code_system": "FIPS5_2",
+  "comment": "a comment can be added here",
+  "physician_repeating_block": [
+    {
+      "physician_name": "Smith, Jim",
+      "physician_phone": "404.555.0123"
+    }
+  ],
+  "asplenic": "No",
+  "asplenic__code": "N",
+  "asplenic__code_system": "HL70136",
+  "history_of_previous_illness": "Yes",
+  "history_of_previous_illness__code": "Y",
+  "history_of_previous_illness__code_system": "HL70136",
+  "symptomatic": "Yes",
+  "symptomatic__code": "Y",
+  "symptomatic__code_system": "HL70136",
+  "previous_illness_repeating_group": [
+    {
+      "date_of_previous_illness": "2009"
+    }
+  ],
+  "clinical_manifestations": [
+    {
+      "clinical_manifestation": "Fever",
+      "clinical_manifestation__code": "386661006",
+      "clinical_manifestation__code_system": "SCT",
+      "clinical_manifestation_indicator": "Yes",
+      "clinical_manifestation_indicator__code": "Y",
+      "clinical_manifestation_indicator__code_system": "HL70136"
+    },
+    {
+      "clinical_manifestation": "Anemia",
+      "clinical_manifestation__code": "271737000",
+      "clinical_manifestation__code_system": "SCT",
+      "clinical_manifestation_indicator": "Yes",
+      "clinical_manifestation_indicator__code": "Y",
+      "clinical_manifestation_indicator__code_system": "HL70136"
+    },
+    {
+      "clinical_manifestation": "Headache",
+      "clinical_manifestation__code": "25064002",
+      "clinical_manifestation__code_system": "SCT",
+      "clinical_manifestation_indicator": "No",
+      "clinical_manifestation_indicator__code": "N",
+      "clinical_manifestation_indicator__code_system": "HL70136"
+    },
+    {
+      "clinical_manifestation": "Muscle pain",
+      "clinical_manifestation__code": "68962001",
+      "clinical_manifestation__code_system": "SCT",
+      "clinical_manifestation_indicator": "Yes",
+      "clinical_manifestation_indicator__code": "Y",
+      "clinical_manifestation_indicator__code_system": "HL70136"
+    }
+  ],
+  "highest_measured_temperature": 101,
+  "temperature_units": "degree Fahrenheit [temperature]",
+  "temperature_units__code": "[degF]",
+  "temperature_units__code_system": "UCUM",
+  "treatment_drug_indicator": "Yes",
+  "treatment_drug_indicator__code": "Y",
+  "treatment_drug_indicator__code_system": "HL70136",
+  "treatment_drugs": [
+    {
+      "treatment_drugs": "Quinine",
+      "treatment_drugs__code": "9071",
+      "treatment_drugs__code_system": "RXNORM~2582"
+    }
+  ],
+  "blood_transfusion": "No",
+  "blood_transfusion__code": "N",
+  "blood_transfusion__code_system": "HL70136",
+  "transfusion_associated": "No",
+  "transfusion_associated__code": "N",
+  "transfusion_associated__code_system": "HL70136",
+  "blood_donor": "No",
+  "blood_donor__code": "N",
+  "blood_donor__code_system": "HL70136",
+  "blood_transfusion_repeating_block": [],
+  "blood_donation_repeating_group": [],
+  "engage_in_outdoor_activities": "Yes",
+  "engage_in_outdoor_activities__code": "Y",
+  "engage_in_outdoor_activities__code_system": "HL70136",
+  "outdoor_activities": [
+    {
+      "outdoor_activities": "Hiking (qualifier value)",
+      "outdoor_activities__code": "451261000124107",
+      "outdoor_activities__code_system": "SCT~10496000"
+    }
+  ],
+  "wooded_or_brushy_areas": "Yes",
+  "wooded_or_brushy_areas__code": "Y",
+  "wooded_or_brushy_areas__code_system": "HL70136",
+  "tick_bite": "No",
+  "tick_bite__code": "N",
+  "tick_bite__code_system": "HL70136",
+  "tick_bite_repeating_group": [],
+  "travel": "Yes",
+  "travel__code": "Y",
+  "travel__code_system": "HL70136",
+  "travel_history_repeating_group": [
+    {
+      "international_destinations_of_recent_travel": "BRAZIL",
+      "international_destinations_of_recent_travel__code": "BRA",
+      "international_destinations_of_recent_travel__code_system": "ISO3166_1",
+      "date_of_arrival_to_travel_destination": "2015-04-10T00:00:00",
+      "date_of_departure_from_travel_destination": "2015-04-11T00:00:00"
+    },
+    {
+      "international_destinations_of_recent_travel": "HONDURAS",
+      "international_destinations_of_recent_travel__code": "HND",
+      "international_destinations_of_recent_travel__code_system": "ISO3166_1",
+      "date_of_arrival_to_travel_destination": "2015-04-11T00:00:00",
+      "date_of_departure_from_travel_destination": "2015-04-13T00:00:00"
+    },
+    {
+      "international_destinations_of_recent_travel": "MEXICO",
+      "international_destinations_of_recent_travel__code": "MEX",
+      "international_destinations_of_recent_travel__code_system": "ISO3166_1",
+      "date_of_arrival_to_travel_destination": "2015-04-13T00:00:00",
+      "date_of_departure_from_travel_destination": "2015-04-14T00:00:00"
+    }
+  ],
+  "industry_and_occupation_repeating_group": [
+    {
+      "current_occupation": "Retired",
+      "current_occupation_standardized": "Retired - NIOSH/NCHS [9060]",
+      "current_occupation_standardized__code": "9060",
+      "current_occupation_standardized__code_system": "CDCOCCUPATION2010",
+      "current_industry": "Retired",
+      "current_industry_standardized": "Retired [9880]",
+      "current_industry_standardized__code": "9880",
+      "current_industry_standardized__code_system": "CDCINDUSTRY2010"
+    },
+    {
+      "current_occupation": "Volunteer",
+      "current_occupation_standardized": "Volunteer - NIOSH/NCHS [9020]",
+      "current_occupation_standardized__code": "9020",
+      "current_occupation_standardized__code_system": "CDCOCCUPATION2010",
+      "current_industry": "Game Keeper",
+      "current_industry_standardized": "Fishing, hunting, and trapping [0280]",
+      "current_industry_standardized__code": "0280",
+      "current_industry_standardized__code_system": "CDCINDUSTRY2010"
+    }
+  ],
+  "epidemiology_laboratory_repeating_group_section": [
+    {
+      "test_type": "IFA \u2013 IgG",
+      "test_type__code": "9584-4",
+      "test_type__code_system": "LN",
+      "test_result": "Positive",
+      "test_result__code": "10828004",
+      "test_result__code_system": "SCT",
+      "organism_name": "Babesia microti",
+      "organism_name__code": "76828008",
+      "organism_name__code_system": "SCT",
+      "test_result_quantitative": "1:256",
+      "specimen_collection_datetime": "2015-05-15T00:00:00"
+    },
+    {
+      "test_type": "Blood smear",
+      "test_type__code": "5909-7",
+      "test_type__code_system": "LN",
+      "test_result": "Positive",
+      "test_result__code": "10828004",
+      "test_result__code_system": "SCT",
+      "organism_name": "Babesia species",
+      "organism_name__code": "372376003",
+      "organism_name__code_system": "SCT",
+      "specimen_collection_datetime": "2015-05-15T00:00:00"
+    }
+  ],
+  "laboratory_information": [
+    {
+      "placer_order_number": "EHR",
+      "placer_order_number__code": "BAB23456-1",
+      "placer_order_number__code_system": "2.16.840.1.113883.19.3.2.3",
+      "filler_order_number": "Lab",
+      "filler_order_number__code": "BAB9700123-1",
+      "filler_order_number__code_system": "2.16.840.1.113883.19.3.1.6",
+      "test_ordered_name": "Babesia identification panel",
+      "test_ordered_name__code": "67866-4",
+      "test_ordered_name__code_system": "LN",
+      "observation_datetime": "2015-09-13T15:00:00+00:00",
+      "ordering_provider": {
+        "person_identifier": "121121121",
+        "assigning_authority": "NPI\u00262.16.840.1.113883.4.6\u0026ISO",
+        "name_type_code": "L",
+        "identifier_type_code": "NPI",
+        "assigning_facility": "2.16.840.1.113883.3.72.5.26",
+        "assigning_facility__code": "NPI_Facility",
+        "assigning_facility__code_system": "ISO",
+        "professional_suffix": "MD"
+      },
+      "results_rptstatus_chng_datetime": "2015-09-13T15:00:00+00:00",
+      "result_status": "F",
+      "reason_for_study": [
+        {
+          "data": "Tick-borne relapsing fever",
+          "code": "A68.1",
+          "code_system": "I10C"
+        }
+      ],
+      "observation_results": [
+        {
+          "test_performed_name": "Babesia microti DNA [Presence] in Blood by Probe and target amplification method",
+          "test_performed_name__code": "21089-8",
+          "test_performed_name__code_system": "SCT",
+          "test_result": "Positive",
+          "test_result__code": "10828004",
+          "test_result__code_system": "SCT",
+          "test_result_interpretation_flag": "POS",
+          "observation_result_status": "F",
+          "specimen_collection_date": "2015-05-15T00:00:00+00:00",
+          "test_method": "Polymerase Chain Reaction (PCR)",
+          "test_method__code": "0132",
+          "test_method__code_system": "OBSMETHOD",
+          "specimen_analyzed_date": "2015-05-16T00:00:00+00:00",
+          "performing_laboratory_name": {
+            "organization_name": "GHH Lab"
+          },
+          "performing_person_name": {
+            "person_identifier": "9876543"
+          }
+        }
+      ],
+      "specimens": [
+        {
+          "specimen_id_placer_assigned_identifier": "BAB1234-1\u0026EHR\u00262.16.840.1.113883.19.3.2.3\u0026ISO",
+          "specimen_id_filler_assigned_identifier": "BAB9700122-1\u0026Lab\u00262.16.840.1.113883.19.3.1.6\u0026ISO",
+          "specimen_type": "Serum specimen",
+          "specimen_type__code": "119364003",
+          "specimen_type__code_system": "SCT",
+          "specimen_source_site": "Antecubital fossa",
+          "specimen_source_site__code": "244001006",
+          "specimen_source_site__code_system": "SCT",
+          "specimen_role": "Patient",
+          "specimen_role__code": "P",
+          "specimen_role__code_system": "HL70369",
+          "specimen_collection_amount": {
+            "quantity": 2,
+            "units": "milliliter",
+            "units__code": "mL",
+            "units__code_system": "UCUM"
+          },
+          "specimen_description": "Serum Sample",
+          "specimen_collection_datetime": "2015-05-15T00:00:00+00:00",
+          "specimen_received_datetime": "2015-05-15T10:15:00+00:00"
+        }
+      ]
+    },
+    {
+      "placer_order_number": "EHR",
+      "placer_order_number__code": "BAB1234-2",
+      "placer_order_number__code_system": "2.16.840.1.113883.19.3.2.3",
+      "filler_order_number": "Lab",
+      "filler_order_number__code": "BAB9700123-1",
+      "filler_order_number__code_system": "2.16.840.1.113883.19.3.1.6",
+      "test_ordered_name": "Babesia identification panel",
+      "test_ordered_name__code": "67866-4",
+      "test_ordered_name__code_system": "LN",
+      "observation_datetime": "2015-09-13T15:00:00+00:00",
+      "ordering_provider": {
+        "person_identifier": "121121121",
+        "assigning_authority": "NPI\u00262.16.840.1.113883.4.6\u0026ISO",
+        "name_type_code": "L",
+        "identifier_type_code": "NPI",
+        "assigning_facility": "2.16.840.1.113883.3.72.5.26",
+        "assigning_facility__code": "NPI_Facility",
+        "assigning_facility__code_system": "ISO",
+        "professional_suffix": "MD"
+      },
+      "results_rptstatus_chng_datetime": "2015-09-13T15:00:00+00:00",
+      "result_status": "F",
+      "reason_for_study": [
+        {
+          "data": "Tick-borne relapsing fever",
+          "code": "A68.1",
+          "code_system": "I10C"
+        }
+      ],
+      "observation_results": [
+        {
+          "test_performed_name": "Microscopic observation [Identifier] in Unspecified specimen by Giemsa stain",
+          "test_performed_name__code": "662-7",
+          "test_performed_name__code_system": "LN",
+          "test_result": "Positive",
+          "test_result__code": "10828004",
+          "test_result__code_system": "SCT",
+          "test_result_interpretation_flag": "POS",
+          "observation_result_status": "F",
+          "specimen_collection_date": "2015-05-15T00:00:00+00:00",
+          "test_method": "May-Grunwald Giemsa stain",
+          "test_method__code": "0204",
+          "test_method__code_system": "OBSMETHOD",
+          "specimen_analyzed_date": "2015-05-16T00:00:00+00:00",
+          "performing_laboratory_name": {
+            "organization_name": "GHH Lab"
+          },
+          "performing_person_name": {
+            "person_identifier": "9876543"
+          }
+        }
+      ],
+      "specimens": [
+        {
+          "specimen_id_placer_assigned_identifier": "BAB1234-2\u0026EHR\u00262.16.840.1.113883.19.3.2.3\u0026ISO",
+          "specimen_id_filler_assigned_identifier": "BAB9700122-2\u0026Lab\u00262.16.840.1.113883.19.3.1.6\u0026ISO",
+          "specimen_type": "Serum specimen",
+          "specimen_type__code": "119364003",
+          "specimen_type__code_system": "SCT",
+          "specimen_source_site": "Antecubital fossa",
+          "specimen_source_site__code": "244001006",
+          "specimen_source_site__code_system": "SCT",
+          "specimen_role": "Patient",
+          "specimen_role__code": "P",
+          "specimen_role__code_system": "HL70369",
+          "specimen_collection_amount": {
+            "quantity": 2,
+            "units": "milliliter",
+            "units__code": "mL",
+            "units__code_system": "UCUM"
+          },
+          "specimen_description": "Serum sample",
+          "specimen_collection_datetime": "2015-05-15T00:00:00+00:00",
+          "specimen_received_datetime": "2015-05-15T10:15:00+00:00"
+        }
+      ]
+    }
+  ]
+}
