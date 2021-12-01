@@ -1,0 +1,201 @@
+﻿using CS.Sdk.Generators;
+using CS.Sdk.Services;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Xunit;
+
+namespace CS.Sdk.Tests
+{
+    public class MmgCsvTemplateGeneratorTests
+    {
+        [Fact]
+        public void GenV2_Success_Test()
+        {
+            IGenerator generator = new MmgCsvTemplateGenerator(new InMemoryMmgService());
+            string expectedLines = @"source_format
+datetime_of_message
+unique_case_id
+message_profile_identifier
+message_profile_identifiers[0]
+message_profile_identifiers[1]
+message_profile_identifiers[2]
+local_subject_id
+birth_date
+subjects_sex
+subjects_sex__code
+subjects_sex__code_system
+race_category[0]
+race_category__code[0]
+race_category__code_system[0]
+race_category[1]
+race_category__code[1]
+race_category__code_system[1]
+race_category[2]
+race_category__code[2]
+race_category__code_system[2]
+other_race_text
+ethnic_group
+ethnic_group__code
+ethnic_group__code_system
+country_of_birth
+country_of_birth__code
+country_of_birth__code_system
+other_birth_place
+country_of_usual_residence
+country_of_usual_residence__code
+country_of_usual_residence__code_system
+subject_address_county
+subject_address_county__code
+subject_address_county__code_system
+subject_address_state
+subject_address_state__code
+subject_address_state__code_system
+subject_address_zip_code
+date_of_illness_onset
+illness_end_date
+illness_duration
+illness_duration_units
+illness_duration_units__code
+illness_duration_units__code_system
+pregnancy_status
+pregnancy_status__code
+pregnancy_status__code_system
+diagnosis_date
+hospitalized
+hospitalized__code
+hospitalized__code_system
+admission_date
+discharge_date
+duration_of_hospital_stay_in_days
+subject_died
+subject_died__code
+subject_died__code_system
+deceased_date
+condition_code
+condition_code__code
+condition_code__code_system
+local_record_id
+state_case_identifier
+legacy_case_identifier
+age_at_case_investigation
+age_unit_at_case_investigation
+age_unit_at_case_investigation__code
+age_unit_at_case_investigation__code_system
+case_disease_imported_code
+case_disease_imported_code__code
+case_disease_imported_code__code_system
+imported_country
+imported_country__code
+imported_country__code_system
+imported_state
+imported_state__code
+imported_state__code_system
+imported_city
+imported_city__code
+imported_city__code_system
+imported_county
+imported_county__code
+imported_county__code_system
+repeating_variables_for_disease_exposure[0].country_of_exposure
+repeating_variables_for_disease_exposure[0].country_of_exposure__code
+repeating_variables_for_disease_exposure[0].country_of_exposure__code_system
+repeating_variables_for_disease_exposure[0].state_or_province_of_exposure
+repeating_variables_for_disease_exposure[0].state_or_province_of_exposure__code
+repeating_variables_for_disease_exposure[0].state_or_province_of_exposure__code_system
+repeating_variables_for_disease_exposure[0].city_of_exposure
+repeating_variables_for_disease_exposure[0].county_of_exposure
+repeating_variables_for_disease_exposure[1].country_of_exposure
+repeating_variables_for_disease_exposure[1].country_of_exposure__code
+repeating_variables_for_disease_exposure[1].country_of_exposure__code_system
+repeating_variables_for_disease_exposure[1].state_or_province_of_exposure
+repeating_variables_for_disease_exposure[1].state_or_province_of_exposure__code
+repeating_variables_for_disease_exposure[1].state_or_province_of_exposure__code_system
+repeating_variables_for_disease_exposure[1].city_of_exposure
+repeating_variables_for_disease_exposure[1].county_of_exposure
+repeating_variables_for_disease_exposure[2].country_of_exposure
+repeating_variables_for_disease_exposure[2].country_of_exposure__code
+repeating_variables_for_disease_exposure[2].country_of_exposure__code_system
+repeating_variables_for_disease_exposure[2].state_or_province_of_exposure
+repeating_variables_for_disease_exposure[2].state_or_province_of_exposure__code
+repeating_variables_for_disease_exposure[2].state_or_province_of_exposure__code_system
+repeating_variables_for_disease_exposure[2].city_of_exposure
+repeating_variables_for_disease_exposure[2].county_of_exposure
+repeating_variables_for_disease_exposure[3].country_of_exposure
+repeating_variables_for_disease_exposure[3].country_of_exposure__code
+repeating_variables_for_disease_exposure[3].country_of_exposure__code_system
+repeating_variables_for_disease_exposure[3].state_or_province_of_exposure
+repeating_variables_for_disease_exposure[3].state_or_province_of_exposure__code
+repeating_variables_for_disease_exposure[3].state_or_province_of_exposure__code_system
+repeating_variables_for_disease_exposure[3].city_of_exposure
+repeating_variables_for_disease_exposure[3].county_of_exposure
+repeating_variables_for_disease_exposure[4].country_of_exposure
+repeating_variables_for_disease_exposure[4].country_of_exposure__code
+repeating_variables_for_disease_exposure[4].country_of_exposure__code_system
+repeating_variables_for_disease_exposure[4].state_or_province_of_exposure
+repeating_variables_for_disease_exposure[4].state_or_province_of_exposure__code
+repeating_variables_for_disease_exposure[4].state_or_province_of_exposure__code_system
+repeating_variables_for_disease_exposure[4].city_of_exposure
+repeating_variables_for_disease_exposure[4].county_of_exposure
+transmission_mode
+transmission_mode__code
+transmission_mode__code_system
+case_class_status_code
+case_class_status_code__code
+case_class_status_code__code_system
+immediate_national_notifiable_condition
+immediate_national_notifiable_condition__code
+immediate_national_notifiable_condition__code_system
+case_outbreak_indicator
+case_outbreak_indicator__code
+case_outbreak_indicator__code_system
+case_outbreak_name
+notification_result_status
+notification_result_status__code
+notification_result_status__code_system
+jurisdiction_code
+reporting_source_type_code
+reporting_source_type_code__code
+reporting_source_type_code__code_system
+reporting_source_zip_code
+binational_reporting_criteria
+binational_reporting_criteria__code
+binational_reporting_criteria__code_system
+person_reporting_to_cdc_name
+person_reporting_to_cdc_phone_number
+person_reporting_to_cdc_email
+case_investigation_start_date
+date_first_electronically_submitted
+date_of_electronic_case_notification_to_cdc
+date_reported
+earliest_date_reported_to_county
+earliest_date_reported_to_state
+mmwr_week
+mmwr_year
+date_cdc_was_first_verbally_notified_of_this_case
+date_first_reported_to_phd
+reporting_state
+reporting_state__code
+reporting_state__code_system
+reporting_county
+reporting_county__code
+reporting_county__code_system
+national_reporting_jurisdiction
+national_reporting_jurisdiction__code
+national_reporting_jurisdiction__code_system
+comment";
+
+            string csv = generator.Generate("Generic_MMG_V2.0", string.Empty);
+            string actualLines = csv.Replace(",", Environment.NewLine);
+
+            actualLines = actualLines.Replace("\r\n", "\n");
+
+            System.Diagnostics.Debug.Print(actualLines);
+
+            Assert.True(csv.Length > 0);
+            Assert.Equal(expectedLines, actualLines);
+        }
+    }
+}
