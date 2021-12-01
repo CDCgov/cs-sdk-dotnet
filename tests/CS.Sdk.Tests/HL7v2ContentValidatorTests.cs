@@ -461,49 +461,49 @@ NTE|1|L|Response to therapy is indicated by a > or =4-fold decrease in titer bet
 SPM|1|CSYP234561-1&EHR&2.16.840.1.113883.19.3.2.3&ISO^CSYP97001222-1&Lab&2.16.840.1.113883.19.3.1.6&ISO||119364003^Serum specimen^SCT||||368149001^Right Elbow^SCT|||P^Patient^HL70369||||||20130801|20130801";
         #endregion
 
-        [Fact]
-        public void Babesiosis_Validation_01()
-        {
-            IContentValidator validator = new HL7v2ContentValidator(new InMemoryVocabularyService(), new InMemoryMmgService());
+        //[Fact]
+        //public void Babesiosis_Validation_01()
+        //{
+        //    IContentValidator validator = new HL7v2ContentValidator(new InMemoryVocabularyService(), new InMemoryMmgService());
 
-            string transactionId = "1234";
+        //    string transactionId = "1234";
 
-            ValidationResult result = validator.Validate(BABESIOSIS_MESSAGE_01, transactionId);
+        //    ValidationResult result = validator.Validate(BABESIOSIS_MESSAGE_01, transactionId);
 
-            Assert.Equal(0, result.Errors);
-            Assert.Equal(0, result.Warnings);
-            Assert.True(result.IsSuccess);
-        }
+        //    Assert.Equal(0, result.Errors);
+        //    Assert.Equal(0, result.Warnings);
+        //    Assert.True(result.IsSuccess);
+        //}
 
-        [Fact]
-        public void STD_Validation_01()
-        {
-            IContentValidator validator = new HL7v2ContentValidator(new InMemoryVocabularyService(), new InMemoryMmgService());
+        //[Fact]
+        //public void STD_Validation_01()
+        //{
+        //    IContentValidator validator = new HL7v2ContentValidator(new InMemoryVocabularyService(), new InMemoryMmgService());
 
-            string transactionId = "1234";
+        //    string transactionId = "1234";
 
-            ValidationResult result = validator.Validate(STD_MESSAGE_01, transactionId);
+        //    ValidationResult result = validator.Validate(STD_MESSAGE_01, transactionId);
 
-            Assert.True(result.ValidationMessages.TrueForAll(m => m.ErrorCode == "90001"));
-            Assert.Equal(0, result.Errors);
-            Assert.Equal(7, result.Warnings);
-            Assert.True(result.IsSuccess); // even with 7 warnings, its valid and we pass it on
-        }
+        //    Assert.True(result.ValidationMessages.TrueForAll(m => m.ErrorCode == "90001"));
+        //    Assert.Equal(0, result.Errors);
+        //    Assert.Equal(7, result.Warnings);
+        //    Assert.True(result.IsSuccess); // even with 7 warnings, its valid and we pass it on
+        //}
 
-        [Fact]
-        public void CS_Validation_01()
-        {
-            IContentValidator validator = new HL7v2ContentValidator(new InMemoryVocabularyService(), new InMemoryMmgService());
+        //[Fact]
+        //public void CS_Validation_01()
+        //{
+        //    IContentValidator validator = new HL7v2ContentValidator(new InMemoryVocabularyService(), new InMemoryMmgService());
 
-            string transactionId = "1234";
+        //    string transactionId = "1234";
 
-            ValidationResult result = validator.Validate(CS_MESSAGE_01, transactionId);
+        //    ValidationResult result = validator.Validate(CS_MESSAGE_01, transactionId);
 
-            Assert.True(result.ValidationMessages.TrueForAll(m => m.ErrorCode.StartsWith("9000")));
-            Assert.Equal(0, result.Errors);
-            Assert.Equal(3, result.Warnings);
-            Assert.True(result.IsSuccess);
-        }
+        //    Assert.True(result.ValidationMessages.TrueForAll(m => m.ErrorCode.StartsWith("9000")));
+        //    Assert.Equal(0, result.Errors);
+        //    Assert.Equal(3, result.Warnings);
+        //    Assert.True(result.IsSuccess);
+        //}
 
         [Theory]
         [InlineData(
