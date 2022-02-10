@@ -66,20 +66,20 @@ namespace CS.Sdk.Generators
                             columnName = columnNameBlockPrefix + $"[{i}]." + columnName;
                         }
 
-                        if (columnName.Equals("race_category") || (element.Repetitions.HasValue && element.Repetitions.Value > 1))
+                        if (columnName.Equals("race_category") || ((element.Repetitions.HasValue && element.Repetitions.Value > 1) || element.IsRepeat || element.MayRepeat.StartsWith("Y")))
                         {
                             for (int j = 0; j < 3; j++)
                             {
                                 string repeatString = $"[{j}]";
-                                sb.Append(columnName + repeatString);
+                                sb.Append(columnName + repeatString + "." + columnName);
                                 sb.Append(",");
 
                                 if (element.DataType == DataType.Coded)
                                 {
-                                    sb.Append(columnName + "__code" + repeatString);
+                                    sb.Append(columnName + repeatString + "." + columnName + "__code");
                                     sb.Append(",");
 
-                                    sb.Append(columnName + "__code_system" + repeatString);
+                                    sb.Append(columnName + repeatString + "." + columnName + "__code_system");
                                     sb.Append(",");
                                 }
                             }
