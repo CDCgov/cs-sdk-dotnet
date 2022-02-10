@@ -7,6 +7,7 @@ The `cs-sdk-dotnet` repository contains software functions for processing case-b
     - HL7 v2.5.1
 - Data format converter:
     - HL7 v2.5.1 to Json
+    - HL7 v2.5.1 to CSV
 - C# model objects for Message Mapping Guides (MMGs)
 - Debatcher for HL7 v2.5.1 batch files
 
