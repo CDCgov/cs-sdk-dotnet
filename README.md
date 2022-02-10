@@ -74,7 +74,7 @@ private static void DebatchCallback(ReadOnlySpan<char> message, MessageDebatchMe
 {
     string hl7v2message = message.ToString();
     ConversionResult conversionResult = converter.Convert(hl7v2message, metadata.TransactionId);
-    ValidationResult validationResult = validator.Validate(conversionResult.Json, metadata.TransactionId);
+    ValidationResult validationResult = validator.Validate(conversionResult.Content, metadata.TransactionId);
 }
 ```
 
@@ -105,7 +105,7 @@ private static void DebatchCallbackPipeline(ReadOnlySpan<char> message, MessageD
 {
     string hl7v2message = message.ToString();
     ConversionResult conversionResult = converter.Convert(hl7v2message, metadata.TransactionId);
-    ValidationResult validationResult = validator.Validate(conversionResult.Json, metadata.TransactionId);
+    ValidationResult validationResult = validator.Validate(conversionResult.Content, metadata.TransactionId);
 
     // persist the conversion and validation results
     // persist the converted Json

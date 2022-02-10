@@ -430,7 +430,7 @@ namespace CS.Sdk.Converters
 
             return new ConversionResult()
             {
-                Json = json,
+                Content = json,
                 TransactionId = transactionId,
                 Condition = condition,
                 ConditionCode = conditionCode,

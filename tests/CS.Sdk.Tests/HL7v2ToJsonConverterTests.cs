@@ -476,7 +476,7 @@ OBX|1|ST|32624-9^Other Race Text^LN||Multiracial||||||F";
             HL7v2ToJsonConverter converter = new HL7v2ToJsonConverter(new InMemoryMmgService());
             ConversionResult result = converter.Convert(message, "1234");
 
-            string json = result.Json;
+            string json = result.Content;
 
             Dictionary<string, object> attributes = JsonConvert.DeserializeObject<Dictionary<string, object>>(json);
 
@@ -520,7 +520,7 @@ OBX|1|ST|32624-9^Other Race Text^LN||Black \T\ White||||||F";
             HL7v2ToJsonConverter converter = new HL7v2ToJsonConverter(new InMemoryMmgService());
             ConversionResult result = converter.Convert(message, "1234");
 
-            string json = result.Json;
+            string json = result.Content;
 
             Dictionary<string, object> attributes = JsonConvert.DeserializeObject<Dictionary<string, object>>(json);
 
@@ -541,7 +541,7 @@ OBX|1|ST|32624-9^Other Race Text^LN||Black \T\ White||||||F";
 
             ConversionResult result = converter.Convert(TB_MESSAGE_01, transactionId);
 
-            string json = result.Json;
+            string json = result.Content;
 
             Dictionary<string, object> attributes = JsonConvert.DeserializeObject<Dictionary<string, object>>(json);
 
@@ -641,7 +641,7 @@ OBX|30|CWE|INV1112^Inside City Limits^PHINQUESTION||Y^Yes^HL70136||||||F
             HL7v2ToJsonConverter converter = new HL7v2ToJsonConverter(new InMemoryMmgService());
             ConversionResult result = converter.Convert(TB_MESSAGE_01, "1234");
 
-            string json = result.Json;
+            string json = result.Content;
 
             Dictionary<string, object> attributes = JsonConvert.DeserializeObject<Dictionary<string, object>>(json);
 
@@ -707,7 +707,7 @@ OBX|30|CWE|INV1112^Inside City Limits^PHINQUESTION||Y^Yes^HL70136||||||F
 
             ConversionResult result = converter.Convert(BABESIOSIS_MESSAGE_01, transactionId);
 
-            string json = result.Json;
+            string json = result.Content;
 
             Dictionary<string, object> attributes = JsonConvert.DeserializeObject<Dictionary<string, object>>(json);
 
@@ -778,7 +778,7 @@ OBX|30|CWE|INV1112^Inside City Limits^PHINQUESTION||Y^Yes^HL70136||||||F
 
             ConversionResult result = converter.Convert(CS_MESSAGE_01, transactionId);
 
-            string json = result.Json;
+            string json = result.Content;
 
             Dictionary<string, object> attributes = JsonConvert.DeserializeObject<Dictionary<string, object>>(json);
 
@@ -901,7 +901,7 @@ OBX|30|CWE|INV1112^Inside City Limits^PHINQUESTION||Y^Yes^HL70136||||||F
 
             ConversionResult result = converter.Convert(STD_MESSAGE_01, transactionId);
 
-            string json = result.Json;
+            string json = result.Content;
 
             Dictionary<string, object> attributes = JsonConvert.DeserializeObject<Dictionary<string, object>>(json);
 
@@ -977,7 +977,7 @@ OBX|30|CWE|INV1112^Inside City Limits^PHINQUESTION||Y^Yes^HL70136||||||F
         public void Date_Conversion_Test(string expected, string message)
         {
             ConversionResult result = new HL7v2ToJsonConverter(new InMemoryMmgService()).Convert(message, "1234");
-            Dictionary<string, object> attributes = JsonConvert.DeserializeObject<Dictionary<string, object>>(result.Json);
+            Dictionary<string, object> attributes = JsonConvert.DeserializeObject<Dictionary<string, object>>(result.Content);
             Assert.Equal(expected, ((DateTime)attributes["datetime_of_message"]).ToString("s"));
         }
 
@@ -999,7 +999,7 @@ OBX|30|CWE|INV1112^Inside City Limits^PHINQUESTION||Y^Yes^HL70136||||||F
 + "\r\n" +
 @"OBX|1|DT|77979-3^Case Investigation Start Date^LN||99999999||||||F";
             ConversionResult result = new HL7v2ToJsonConverter(new InMemoryMmgService()).Convert(message, "1234");
-            Dictionary<string, object> attributes = JsonConvert.DeserializeObject<Dictionary<string, object>>(result.Json);
+            Dictionary<string, object> attributes = JsonConvert.DeserializeObject<Dictionary<string, object>>(result.Content);
             Assert.Equal("99999999", attributes["case_investigation_start_date"]);
         }
 
@@ -1013,7 +1013,7 @@ OBX|30|CWE|INV1112^Inside City Limits^PHINQUESTION||Y^Yes^HL70136||||||F
 + "\r\n" +
 @"OBX|1|DT|77979-3^Case Investigation Start Date^LN||2014||||||F";
             ConversionResult result = new HL7v2ToJsonConverter(new InMemoryMmgService()).Convert(message, "1234");
-            Dictionary<string, object> attributes = JsonConvert.DeserializeObject<Dictionary<string, object>>(result.Json);
+            Dictionary<string, object> attributes = JsonConvert.DeserializeObject<Dictionary<string, object>>(result.Content);
             Assert.Equal("2014", attributes["case_investigation_start_date"]);
 
             // REQUIREMENT - if the date is valid HL7v2, we just get a string and not a Json date. 
