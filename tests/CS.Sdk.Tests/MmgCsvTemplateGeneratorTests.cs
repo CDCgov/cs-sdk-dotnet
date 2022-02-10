@@ -19,23 +19,23 @@ namespace CS.Sdk.Tests
 datetime_of_message
 unique_case_id
 message_profile_identifier
-message_profile_identifiers[0]
-message_profile_identifiers[1]
-message_profile_identifiers[2]
+message_profile_identifiers[0].message_profile_identifiers
+message_profile_identifiers[1].message_profile_identifiers
+message_profile_identifiers[2].message_profile_identifiers
 local_subject_id
 birth_date
 subjects_sex
 subjects_sex__code
 subjects_sex__code_system
-race_category[0]
-race_category__code[0]
-race_category__code_system[0]
-race_category[1]
-race_category__code[1]
-race_category__code_system[1]
-race_category[2]
-race_category__code[2]
-race_category__code_system[2]
+race_category[0].race_category
+race_category[0].race_category__code
+race_category[0].race_category__code_system
+race_category[1].race_category
+race_category[1].race_category__code
+race_category[1].race_category__code_system
+race_category[2].race_category
+race_category[2].race_category__code
+race_category[2].race_category__code_system
 other_race_text
 ethnic_group
 ethnic_group__code
@@ -160,9 +160,15 @@ reporting_source_type_code
 reporting_source_type_code__code
 reporting_source_type_code__code_system
 reporting_source_zip_code
-binational_reporting_criteria
-binational_reporting_criteria__code
-binational_reporting_criteria__code_system
+binational_reporting_criteria[0].binational_reporting_criteria
+binational_reporting_criteria[0].binational_reporting_criteria__code
+binational_reporting_criteria[0].binational_reporting_criteria__code_system
+binational_reporting_criteria[1].binational_reporting_criteria
+binational_reporting_criteria[1].binational_reporting_criteria__code
+binational_reporting_criteria[1].binational_reporting_criteria__code_system
+binational_reporting_criteria[2].binational_reporting_criteria
+binational_reporting_criteria[2].binational_reporting_criteria__code
+binational_reporting_criteria[2].binational_reporting_criteria__code_system
 person_reporting_to_cdc_name
 person_reporting_to_cdc_phone_number
 person_reporting_to_cdc_email
@@ -186,6 +192,8 @@ national_reporting_jurisdiction
 national_reporting_jurisdiction__code
 national_reporting_jurisdiction__code_system
 comment";
+
+            expectedLines = expectedLines.Replace("\r\n", "\n");
 
             string csv = generator.Generate("Generic_MMG_V2.0", string.Empty);
             string actualLines = csv.Replace(",", Environment.NewLine);

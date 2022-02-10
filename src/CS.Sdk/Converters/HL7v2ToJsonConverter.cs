@@ -285,7 +285,7 @@ namespace CS.Sdk.Converters
                     Profile = profileIdentifier,
                     Condition = condition,
                     ConditionCode = conditionCode,
-                    Json = string.Empty,
+                    Content = string.Empty,
                     ConversionMessages = messages,
                     TransactionId = transactionId,
                     Created = DateTime.Now,
@@ -490,7 +490,7 @@ namespace CS.Sdk.Converters
 
             return new ConversionResult()
             {
-                Json = json,
+                Content = json,
                 TransactionId = transactionId,
                 BaseProfile = baseBrofileIdentifier,
                 Profile = profileIdentifier,
@@ -1412,7 +1412,7 @@ namespace CS.Sdk.Converters
 
                 if (repeats.Length > 0)
                 {
-                    //writer.WriteStartArray("ethnic_group");
+                    writer.WriteStartArray("ethnic_group");
 
                     foreach (var repeat in repeats)
                     {
@@ -1425,7 +1425,7 @@ namespace CS.Sdk.Converters
 
                         break;
                     }
-                    //writer.WriteEndArray();
+                    writer.WriteEndArray();
                 }
             }
             if (nk1fields.Length >= 5 && !string.IsNullOrEmpty(nk1fields[4]))

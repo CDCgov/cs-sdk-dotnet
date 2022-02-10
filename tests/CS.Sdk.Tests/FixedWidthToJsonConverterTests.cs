@@ -14,7 +14,7 @@ namespace CS.Sdk.Tests
             FixedWidthToJsonConverter converter = new FixedWidthToJsonConverter();
             ConversionResult result = converter.Convert(fixedWidthData);
 
-            List<Dictionary<string, object>> messages = System.Text.Json.JsonSerializer.Deserialize<List<Dictionary<string, object>>>(result.Json);
+            List<Dictionary<string, object>> messages = System.Text.Json.JsonSerializer.Deserialize<List<Dictionary<string, object>>>(result.Content);
 
             Assert.Single(messages);
 
@@ -85,7 +85,7 @@ namespace CS.Sdk.Tests
             FixedWidthToJsonConverter converter = new FixedWidthToJsonConverter();
             ConversionResult result = converter.Convert(netss);
 
-            List<Dictionary<string, object>> messages = System.Text.Json.JsonSerializer.Deserialize<List<Dictionary<string, object>>>(result.Json);
+            List<Dictionary<string, object>> messages = System.Text.Json.JsonSerializer.Deserialize<List<Dictionary<string, object>>>(result.Content);
 
             Assert.Single(messages);
 
@@ -157,9 +157,9 @@ namespace CS.Sdk.Tests
             FixedWidthToJsonConverter converter = new FixedWidthToJsonConverter();
             ConversionResult result = converter.Convert(netss);
 
-            System.Diagnostics.Debug.WriteLine(result.Json);
+            System.Diagnostics.Debug.WriteLine(result.Content);
 
-            List<Dictionary<string, object>> messages = System.Text.Json.JsonSerializer.Deserialize<List<Dictionary<string, object>>>(result.Json);
+            List<Dictionary<string, object>> messages = System.Text.Json.JsonSerializer.Deserialize<List<Dictionary<string, object>>>(result.Content);
 
             Assert.Single(messages);
 

@@ -39,9 +39,9 @@ namespace CS.Sdk.Converters
         public DateTimeOffset? MessageDateTime { get; set; } = DateTime.MinValue;
 
         /// <summary>
-        /// The Json representation of the case notification message
+        /// The converted representation of the case notification message
         /// </summary>
-        public string Json { get; set; } = string.Empty;
+        public string Content { get; set; } = string.Empty;
 
         /// <summary>
         /// Base profile for the case notification
