@@ -571,25 +571,25 @@ namespace CS.Sdk.Converters
                 }
                 writer.WriteEndArray();
             }
-            else if (pidFields != null && (mapping.Identifier == "DEM197" || mapping.LegacyIdentifier == "DEM197"))
+            else if (pidFields != null && pidFields.Length > 3 && (mapping.Identifier == "DEM197" || mapping.LegacyIdentifier == "DEM197"))
             {
                 string data = pidFields[3].Split('^')[0];
                 var failMessages = WriteData(element, writer, data);
                 messages.AddRange(failMessages);
             }
-            else if (pidFields != null && (mapping.Identifier == "DEM115" || mapping.LegacyIdentifier == "DEM115"))
+            else if (pidFields != null && pidFields.Length > 7 && (mapping.Identifier == "DEM115" || mapping.LegacyIdentifier == "DEM115"))
             {
                 string data = pidFields[7];
                 var failMessages = WriteData(element, writer, data);
                 messages.AddRange(failMessages);
             }
-            else if (pidFields != null && (mapping.Identifier == "DEM113" || mapping.LegacyIdentifier == "DEM113"))
+            else if (pidFields != null && pidFields.Length > 8 && (mapping.Identifier == "DEM113" || mapping.LegacyIdentifier == "DEM113"))
             {
                 string data = pidFields[8];
                 var failMessages = WriteData(element, writer, data);
                 messages.AddRange(failMessages);
             }
-            else if (pidFields != null && (mapping.Identifier == "DEM152" || mapping.LegacyIdentifier == "DEM152"))
+            else if (pidFields != null && pidFields.Length > 10 && (mapping.Identifier == "DEM152" || mapping.LegacyIdentifier == "DEM152"))
             {
                 string[] repeats = pidFields[10].Split('~');
 
@@ -601,17 +601,17 @@ namespace CS.Sdk.Converters
                 }
                 writer.WriteEndArray();
             }
-            else if (pidFields != null && (mapping.Identifier == "DEM155" || mapping.LegacyIdentifier == "DEM155"))
+            else if (pidFields != null && pidFields.Length > 22 && (mapping.Identifier == "DEM155" || mapping.LegacyIdentifier == "DEM155"))
             {
                 string[] repeats = pidFields[22].Split('~');
 
-                writer.WriteStartArray(propertyName);
+                //writer.WriteStartArray(propertyName);
                 foreach (string repeat in repeats)
                 {
-                    var failMessages = WriteData(element, writer, repeat, true);
+                    var failMessages = WriteData(element, writer, repeat, /*true*/ false);
                     messages.AddRange(failMessages);
                 }
-                writer.WriteEndArray();
+                //writer.WriteEndArray();
             }
             else if (pidFields != null && (mapping.Identifier == "DEM165" || mapping.LegacyIdentifier == "DEM165"))
             {
@@ -717,14 +717,26 @@ namespace CS.Sdk.Converters
             #endregion
             else if (mapping.SegmentType == Mmg.HL7V251.SegmentType.PID && mapping.FieldPosition.HasValue && pidFields != null)
             {
-                string data = pidFields[mapping.FieldPosition.Value];
-
-                if (mapping.ComponentPosition.HasValue)
+                if (pidFields.Length <= mapping.FieldPosition.Value)
                 {
-                    data = data.Split('^')[mapping.ComponentPosition.Value - 1];
+                    messages.Add(new ProcessResultMessage()
+                    {
+                        Content = "Element '" + element.Name + "' (" + element.Mappings.Hl7v251.Identifier + ") is mapped to a PID field. However, this field is absent from the message.",
+                        Severity = Severity.Information,
+                        ErrorCode = "0010"
+                    });
                 }
-                var failMessages = WriteData(element, writer, data);
-                messages.AddRange(failMessages);
+                else
+                {
+                    string data = pidFields[mapping.FieldPosition.Value];
+
+                    if (mapping.ComponentPosition.HasValue)
+                    {
+                        data = data.Split('^')[mapping.ComponentPosition.Value - 1];
+                    }
+                    var failMessages = WriteData(element, writer, data);
+                    messages.AddRange(failMessages);
+                }
             }
             else if (mapping.SegmentType == Mmg.HL7V251.SegmentType.NK1 && mapping.FieldPosition.HasValue)
             {
@@ -1400,7 +1412,7 @@ namespace CS.Sdk.Converters
 
                 if (repeats.Length > 0)
                 {
-                    writer.WriteStartArray("ethnic_group");
+                    //writer.WriteStartArray("ethnic_group");
 
                     foreach (var repeat in repeats)
                     {
@@ -1410,8 +1422,10 @@ namespace CS.Sdk.Converters
                         WriteGenericCodedData(writer, "ethnic_group", components);
 
                         writer.WriteEndObject();
+
+                        break;
                     }
-                    writer.WriteEndArray();
+                    //writer.WriteEndArray();
                 }
             }
             if (nk1fields.Length >= 5 && !string.IsNullOrEmpty(nk1fields[4]))
