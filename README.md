@@ -130,6 +130,18 @@ public class StringDebatchHandler : IDebatchHandler
 
 The example pipeline code shown above will debatch 10,000 HL7v2 messages, convert them to Json, and then validate the Json in about 20 seconds. This is single-threaded performance, meaning a scale factor of 1, on 15W TDP Intel CPU.
 
+### HL7v2 to CSV converter
+
+The SDK can optionally convert case surveillance messages in HL7v2 format to CSV format, where the CSV columns are the data elements in the message mapping guide:
+
+```cs
+IConverter converter = new HL7v2ToCsvConverter(new MmgCsvTemplateGenerator(), new HL7v2ToJsonConverter(), true);
+ConversionResult result = converter.Convert(hl7v2message, "1234");
+string csv = result.Content;
+```
+
+This is an alternative to the SDK's conversion of HL7v2 messages to Json.
+
 ## Disclaimer on Case Notification Data
 
 This repository contains case notification data in various places, including in the [tests/](tests/) folder and in the README.md file. Such data are necessary to both verify the correct functionality of the software as well as provide documentation to users about how to use the software. These data are synthetically generated, representing fictional people and events only. Any similarity to real persons is unintentional.
