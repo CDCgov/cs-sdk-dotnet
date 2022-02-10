@@ -191,7 +191,7 @@ namespace CS.Sdk
         public static Dictionary<string, string> FlattenJson(string json)
         {
             JObject jsonObject = JObject.Parse(json);
-            IEnumerable<JToken> jTokens = jsonObject.Descendants().Where(p => p.Count() == 0);
+            IEnumerable<JToken> jTokens = jsonObject.Descendants().Where(p => !p.HasValues);
             Dictionary<string, string> results = jTokens.Aggregate(new Dictionary<string, string>(), (properties, jToken) =>
             {
                 properties.Add(jToken.Path, jToken.ToString());
