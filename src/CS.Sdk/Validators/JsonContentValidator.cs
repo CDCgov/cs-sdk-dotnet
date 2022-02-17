@@ -311,7 +311,7 @@ namespace CS.Sdk.Validators
                                          $""));
                             }
                             break;
-                        case Mmg.DataType.Coded when (element.Repetitions.HasValue && element.Repetitions.Value > 1) || (element.IsRepeat) || element.Name.Equals("Ethnic Group"):
+                        case Mmg.DataType.Coded when (element.Repetitions.HasValue && element.Repetitions.Value > 1) || (element.IsRepeat):
                             foreach (JsonElement jsonArrayItem in property.EnumerateArray())
                             {
                                 if (jsonArrayItem.ValueKind == JsonValueKind.Object)
