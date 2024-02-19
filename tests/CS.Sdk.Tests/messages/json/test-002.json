@@ -19,13 +19,9 @@
       "race_category__code_system": "CDCREC"
     }
   ],
-  "ethnic_group": [
-    {
-      "ethnic_group": "Not Hispanic or Latino",
-      "ethnic_group__code": "H",
-      "ethnic_group__code_system": "CDCREC"
-    }
-  ],
+  "ethnic_group": "Not Hispanic or Latino",
+  "ethnic_group__code": "H",
+  "ethnic_group__code_system": "CDCREC",
   "country_of_birth": "UNITED STATES",
   "country_of_birth__code": "USA",
   "country_of_birth__code_system": "ISO3166_1",
