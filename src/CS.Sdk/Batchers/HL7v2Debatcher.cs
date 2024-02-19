@@ -22,6 +22,29 @@ namespace CS.Sdk.Batchers
         /// <returns>A debatch result containing metadata about the debatching operation</returns>
         public DebatchResult Debatch(string hl7v2batch, IDebatchHandler debatchHandler, string transactionId = "")
         {
+            DebatchOptions options = new DebatchOptions(
+                doPreProcessSanityChecks: true,
+                checkFileSegments: true,
+                checkBatchSegments: true,
+                checkBatchTrailerCountAgainstActualCount: true,
+                checkBatchForEmptiness: true
+            );
+
+            return Debatch(hl7v2batch, options, debatchHandler, transactionId);
+        }
+
+        /// <summary>
+        /// Debatch an HL7v2 batch message
+        /// </summary>
+        /// <param name="hl7v2batch">HL7v2 batch payload</param>
+        /// <paramref name="options">Options object for configuring behavior of the debatcher</param>
+        /// <param name="debatchHandler">Object that can be injected and whose handler method is executed on every
+        /// debatched HL7v2 message, as it is debatched. For a batch of 100,000 messages, this function will be called 
+        /// 100,000 times.</param>
+        /// <param name="transactionId">Optional transaction ID. Leaving this empty will result in a warning.</param>
+        /// <returns>A debatch result containing metadata about the debatching operation</returns>
+        public DebatchResult Debatch(string hl7v2batch, DebatchOptions options, IDebatchHandler debatchHandler, string transactionId = "")
+        {
             // time the debatching process
             var sw = new System.Diagnostics.Stopwatch();
             sw.Start();
@@ -45,7 +68,10 @@ namespace CS.Sdk.Batchers
             ReadOnlySpan<char> message = hl7v2batch.AsSpan();
 
             // do some sanity checks
-            processingMessages.AddRange(DoPreProcessSanityChecks(message));
+            if (options.DoPreProcessSanityChecks)
+            {
+                processingMessages.AddRange(DoPreProcessSanityChecks(message));
+            }
             if (processingMessages.Any(m => m.Severity == Severity.Error))
             {
                 return new DebatchResult(processingMessages, handlerMessages)
@@ -116,8 +142,11 @@ namespace CS.Sdk.Batchers
                             segmentCheckerList.Add("BHS");
 
                             // validate FHS segment
-                            ReadOnlySpan<char> fhsSegment = message.Slice(startCollectionOffset, offset - startCollectionOffset);
-                            processingMessages.AddRange(ValidateFHS(fhsSegment));
+                            if (options.CheckFileSegments)
+                            {
+                                ReadOnlySpan<char> fhsSegment = message.Slice(startCollectionOffset, offset - startCollectionOffset);
+                                processingMessages.AddRange(ValidateFHS(fhsSegment));
+                            }
 
                             collecting = false;
                             startCollectionOffset = offset;
@@ -149,14 +178,34 @@ namespace CS.Sdk.Batchers
                             {
                                 // this is the first MSH, so let's process the preceding BHS segment because the BHS segment
                                 // has important batch metadata
-                                ReadOnlySpan<char> bhsSegment = message.Slice(startCollectionOffset, offset - startCollectionOffset);
-                                processingMessages.AddRange(ValidateBHS(bhsSegment));
-                                (senderApplication, senderFacility, receiverApplication, receiverFacility, batchName) = ExtractMetadataFromBHS(bhsSegment);
+                                if (options.CheckBatchSegments)
+                                {
+                                    ReadOnlySpan<char> bhsSegment = message.Slice(startCollectionOffset, offset - startCollectionOffset);
+                                    processingMessages.AddRange(ValidateBHS(bhsSegment));
 
-                                messageMetadata.SenderApplication = senderApplication;
-                                messageMetadata.SenderFacility = senderFacility;
-                                messageMetadata.ReceiverApplication = receiverApplication;
-                                messageMetadata.ReceiverFacility = receiverFacility;
+                                    try
+                                    {
+                                        (senderApplication, senderFacility, receiverApplication, receiverFacility, batchName) = ExtractMetadataFromBHS(bhsSegment);
+
+                                        messageMetadata.SenderApplication = senderApplication;
+                                        messageMetadata.SenderFacility = senderFacility;
+                                        messageMetadata.ReceiverApplication = receiverApplication;
+                                        messageMetadata.ReceiverFacility = receiverFacility;
+                                    }
+                                    catch (Exception ex)
+                                    {
+                                        if (options.CheckBatchSegments)
+                                        {
+                                            ProcessResultMessage warning = new ProcessResultMessage()
+                                            {
+                                                ErrorCode = "0011",
+                                                Severity = Severity.Warning,
+                                                Content = "Batch header segment is malformed and could not be parsed. Sender application, sender facility, receiver application, and receiver facility metadata could not be retrieved. Message: " + ex.Message
+                                            };
+                                            processingMessages.Add(warning);
+                                        }
+                                    }
+                                }
                             }
 
                             collecting = true;
@@ -233,13 +282,16 @@ namespace CS.Sdk.Batchers
                                 if (!success)
                                 {
                                     reportedBatchCount = -1;
-                                    ProcessResultMessage warning = new ProcessResultMessage()
+                                    if (options.CheckBatchTrailerCountAgainstActualCount)
                                     {
-                                        ErrorCode = "0001",
-                                        Severity = Severity.Warning,
-                                        Content = "Batch trailer segment has missing or invalid data for the Batch Message Count field (BTS-1)"
-                                    };
-                                    processingMessages.Add(warning);
+                                        ProcessResultMessage warning = new ProcessResultMessage()
+                                        {
+                                            ErrorCode = "0001",
+                                            Severity = Severity.Warning,
+                                            Content = "Batch trailer segment has missing or invalid data for the Batch Message Count field (BTS-1)"
+                                        };
+                                        processingMessages.Add(warning);
+                                    }
                                 }
                             }
                         }
@@ -259,7 +311,7 @@ namespace CS.Sdk.Batchers
             }
 
             #region Check for errors/warnings
-            if (segmentCheckerList.Count >= 1 && segmentCheckerList[0] != "FHS")
+            if (options.CheckFileSegments && segmentCheckerList.Count >= 1 && segmentCheckerList[0] != "FHS")
             {
                 // error
                 ProcessResultMessage processingMessage = new ProcessResultMessage()
@@ -270,7 +322,7 @@ namespace CS.Sdk.Batchers
                 };
                 processingMessages.Add(processingMessage);
             }
-            if (segmentCheckerList.Count >= 2 && segmentCheckerList[1] != "BHS")
+            if (options.CheckBatchSegments && segmentCheckerList.Count >= 2 && segmentCheckerList[1] != "BHS")
             {
                 // error
                 ProcessResultMessage processingMessage = new ProcessResultMessage()
@@ -281,7 +333,7 @@ namespace CS.Sdk.Batchers
                 };
                 processingMessages.Add(processingMessage);
             }
-            if (segmentCheckerList.Count >= 3 && segmentCheckerList[2] != "BTS")
+            if (options.CheckBatchSegments && segmentCheckerList.Count >= 3 && segmentCheckerList[2] != "BTS")
             {
                 // error
                 ProcessResultMessage processingMessage = new ProcessResultMessage()
@@ -292,7 +344,7 @@ namespace CS.Sdk.Batchers
                 };
                 processingMessages.Add(processingMessage);
             }
-            if (segmentCheckerList.Count >= 4 && segmentCheckerList[3] != "FTS")
+            if (options.CheckFileSegments && segmentCheckerList.Count >= 4 && segmentCheckerList[3] != "FTS")
             {
                 // error
                 ProcessResultMessage processingMessage = new ProcessResultMessage()
@@ -304,7 +356,7 @@ namespace CS.Sdk.Batchers
                 processingMessages.Add(processingMessage);
             }
             // the actual # of messages debatched is not the same as the number the sender said they included
-            if (messagesFound != reportedBatchCount)
+            if (options.CheckBatchTrailerCountAgainstActualCount && messagesFound != reportedBatchCount)
             {
                 ProcessResultMessage warning = new ProcessResultMessage()
                 {
@@ -315,7 +367,7 @@ namespace CS.Sdk.Batchers
                 processingMessages.Add(warning);
             }
             // no messages were found in the batch!
-            if (messagesFound == 0)
+            if (options.CheckBatchForEmptiness && messagesFound == 0)
             {
                 ProcessResultMessage error = new ProcessResultMessage()
                 {
@@ -355,6 +407,7 @@ namespace CS.Sdk.Batchers
         private List<ProcessResultMessage> DoPreProcessSanityChecks(ReadOnlySpan<char> hl7v2batch)
         {
             List<ProcessResultMessage> processingMessages = new List<ProcessResultMessage>(1);
+
 
             ReadOnlySpan<char> firstThree = hl7v2batch.Slice(0, 3);
 
