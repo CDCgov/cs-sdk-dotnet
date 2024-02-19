@@ -14,16 +14,12 @@
   "subjects_sex__code": "M",
   "race_category": [
     {
-      "race_category": "White",
+      "race_category": "White"
     }
   ],
-  "ethnic_group": [
-    {
-      "ethnic_group": "Not Hispanic or Latino",
-      "ethnic_group__code": "2186-5",
-      "ethnic_group__code_system": "CDCREC"
-    }
-  ],
+  "ethnic_group": "Not Hispanic or Latino",
+  "ethnic_group__code": "2186-5",
+  "ethnic_group__code_system": "CDCREC",
   "country_of_birth": "UNITED STATES",
   "country_of_birth__code": "USA",
   "country_of_birth__code_system": "ISO3166_1",
@@ -112,5 +108,5 @@
       "physician_name": "Smith, Jim",
       "physician_phone": "404.555.0123"
     }
-  ],
+  ]
 }
