@@ -7,6 +7,9 @@ samples/
 # Azure Functions localsettings file
 local.settings.json
 
+# Benchmark Dotnet stuff
+**/BenchmarkDotNet.Artifacts/*
+
 # macOS stuff
 .DS_Store
 
