@@ -44,25 +44,25 @@ namespace CS.Sdk.Tests
             if (metadata.MessageBatchPosition == 1)
             {
                 Assert.Equal(@"MSH|^~\&|SendAppName1^2.16.840.1.114222.TBD^ISO|Sending-Facility^2.16.840.1.114222.TBD^ISO|PHINCDS^2.16.840.1.114222.4.3.2.10^ISO|PHIN^2.16.840.1.114222^ISO|20140630120030.1234-0500||ORU^R01^ORU_R01|MESSAGE CONTROL ID|D|2.5.1|||||||||NOTF_ORU_v3.0^PHINProfileID^2.16.840.1.114222.4.10.3^ISO~Generic_MMG_V2.0^PHINMsgMapID^2.16.840.1.114222.4.10.4^ISO~Babesiosis_MMG_V1.0^PHINMsgMapID^2.16.840.1.114222.4.10.4^ISO
-PID|1||BABESIOSIS_TC01^^^SendAppName&2.16.840.1.114222.nnnn&ISO||~^^^^^^S||19370313|M||2106-3^White^CDCREC|^^^09^6320^^^^09011|||||||||||2186-5^Not Hispanic or Latino^CDCREC||||||||||||||||", payload);
+PID|1||BABESIOSIS_TC01^^^SendAppName&2.16.840.1.114222.nnnn&ISO||~^^^^^^S||19370313|M||2106-3^White^CDCREC|^^^09^6320^^^^09011|||||||||||2186-5^Not Hispanic or Latino^CDCREC||||||||||||||||", payload, ignoreCase: false, ignoreLineEndingDifferences: true);
             }
 
             if (metadata.MessageBatchPosition == 2)
             {
                 Assert.Equal(@"MSH|^~\&|SendAppName2^2.16.840.1.114222.TBD^ISO|Sending-Facility^2.16.840.1.114222.TBD^ISO|PHINCDS^2.16.840.1.114222.4.3.2.10^ISO|PHIN^2.16.840.1.114222^ISO|20140630120030.1234-0500||ORU^R01^ORU_R01|MESSAGE CONTROL ID|D|2.5.1|||||||||NOTF_ORU_v3.0^PHINProfileID^2.16.840.1.114222.4.10.3^ISO~Generic_MMG_V2.0^PHINMsgMapID^2.16.840.1.114222.4.10.4^ISO~Babesiosis_MMG_V1.0^PHINMsgMapID^2.16.840.1.114222.4.10.4^ISO
-PID|1||BABESIOSIS_TC02^^^SendAppName&2.16.840.1.114222.nnnn&ISO||~^^^^^^S||19380313|M||2106-3^White^CDCREC|^^^09^6320^^^^09011|||||||||||2186-5^Not Hispanic or Latino^CDCREC||||||||||||||||", payload);
+PID|1||BABESIOSIS_TC02^^^SendAppName&2.16.840.1.114222.nnnn&ISO||~^^^^^^S||19380313|M||2106-3^White^CDCREC|^^^09^6320^^^^09011|||||||||||2186-5^Not Hispanic or Latino^CDCREC||||||||||||||||", payload, ignoreCase: false, ignoreLineEndingDifferences: true);
             }
 
             if (metadata.MessageBatchPosition == 3)
             {
                 Assert.Equal(@"MSH|^~\&|SendAppName3^2.16.840.1.114222.TBD^ISO|Sending-Facility^2.16.840.1.114222.TBD^ISO|PHINCDS^2.16.840.1.114222.4.3.2.10^ISO|PHIN^2.16.840.1.114222^ISO|20140630120030.1234-0500||ORU^R01^ORU_R01|MESSAGE CONTROL ID|D|2.5.1|||||||||NOTF_ORU_v3.0^PHINProfileID^2.16.840.1.114222.4.10.3^ISO~Generic_MMG_V2.0^PHINMsgMapID^2.16.840.1.114222.4.10.4^ISO~Babesiosis_MMG_V1.0^PHINMsgMapID^2.16.840.1.114222.4.10.4^ISO
-PID|1||BABESIOSIS_TC03^^^SendAppName&2.16.840.1.114222.nnnn&ISO||~^^^^^^S||19390313|M||2106-3^White^CDCREC|^^^09^6320^^^^09011|||||||||||2186-5^Not Hispanic or Latino^CDCREC||||||||||||||||", payload);
+PID|1||BABESIOSIS_TC03^^^SendAppName&2.16.840.1.114222.nnnn&ISO||~^^^^^^S||19390313|M||2106-3^White^CDCREC|^^^09^6320^^^^09011|||||||||||2186-5^Not Hispanic or Latino^CDCREC||||||||||||||||", payload, ignoreCase: false, ignoreLineEndingDifferences: true);
             }
 
             if (metadata.MessageBatchPosition == 4)
             {
                 Assert.Equal(@"MSH|^~\&|SendAppName4^2.16.840.1.114222.TBD^ISO|Sending-Facility^2.16.840.1.114222.TBD^ISO|PHINCDS^2.16.840.1.114222.4.3.2.10^ISO|PHIN^2.16.840.1.114222^ISO|20140630120030.1234-0500||ORU^R01^ORU_R01|MESSAGE CONTROL ID|D|2.5.1|||||||||NOTF_ORU_v3.0^PHINProfileID^2.16.840.1.114222.4.10.3^ISO~Generic_MMG_V2.0^PHINMsgMapID^2.16.840.1.114222.4.10.4^ISO~Babesiosis_MMG_V1.0^PHINMsgMapID^2.16.840.1.114222.4.10.4^ISO
-PID|1||BABESIOSIS_TC04^^^SendAppName&2.16.840.1.114222.nnnn&ISO||~^^^^^^S||19400313|M||2106-3^White^CDCREC|^^^09^6320^^^^09011|||||||||||2186-5^Not Hispanic or Latino^CDCREC||||||||||||||||", payload);
+PID|1||BABESIOSIS_TC04^^^SendAppName&2.16.840.1.114222.nnnn&ISO||~^^^^^^S||19400313|M||2106-3^White^CDCREC|^^^09^6320^^^^09011|||||||||||2186-5^Not Hispanic or Latino^CDCREC||||||||||||||||", payload, ignoreCase: false, ignoreLineEndingDifferences: true);
             }
 
             Assert.True(metadata.MessageBatchPosition <= 4);
@@ -112,7 +112,7 @@ NK1|1||MTH^Mother^HL70063|^^^22^71301^USA^^^22079||||||||||S^Single^HL70002||199
 OBR|1||CONSYPH_TC01^SendAppName^2.16.840.1.114222.nnnn^ISO|68991-9^Epidemiologic Information^LN|||20130825170100|||||||||||||||20130825170100|||F||||||10316^Syphilis, Congenital^NND
 OBX|1|CWE|78746-5^Country of Birth^LN||USA^United States^ISO3166_1||||||F
 OBX|2|CWE|77983-5^Country of Usual Residence^LN||USA^United States^ISO3166_1||||||F
-OBX|3|TS|11368-8^Date of Illness Onset^LN||20130801||||||F", payload);
+OBX|3|TS|11368-8^Date of Illness Onset^LN||20130801||||||F", payload, ignoreCase: false, ignoreLineEndingDifferences: true);
             }
 
             if (metadata.MessageBatchPosition == 2)
@@ -124,7 +124,7 @@ OBR|1||CONSYPH_TC02^SendAppName^2.16.840.1.114222.nnnn^ISO|68991-9^Epidemiologic
 OBX|1|CWE|78746-5^Country of Birth^LN||USA^United States^ISO3166_1||||||F
 OBX|2|CWE|77983-5^Country of Usual Residence^LN||USA^United States^ISO3166_1||||||F
 OBX|3|TS|11368-8^Date of Illness Onset^LN||20130411||||||F
-OBX|4|TS|77975-1^Diagnosis Date^LN||20130411||||||F", payload);
+OBX|4|TS|77975-1^Diagnosis Date^LN||20130411||||||F", payload, ignoreCase: false, ignoreLineEndingDifferences: true);
             }
 
             if (metadata.MessageBatchPosition == 3)
@@ -133,7 +133,7 @@ OBX|4|TS|77975-1^Diagnosis Date^LN||20130411||||||F", payload);
 PID|1||CONSYPH_TC03^^^SendAppName&2.16.840.1.114222.nnnn&ISO||~^^^^^^S||20130917|F||2054-5^Black or African American^CDCREC|^^^17^60643^^^^17031|||||||||||2186-5^Not Hispanic or Latino^CDCREC
 NK1|1||MTH^Mother^HL70063|^^^17^60643^USA^^^17031||||||||||S^Single^HL70002||19920827||||||||||||2186-5^Not Hispanic or Latino^CDCREC|||||||2054-5^Black or African American^CDCREC
 OBR|1||CONSYPH_TC03^SendAppName^2.16.840.1.114222.nnnn^ISO|68991-9^Epidemiologic Information^LN|||20130922170100|||||||||||||||20130922170100|||F||||||10316^Syphilis, Congenital^NND
-OBX|1|CWE|78746-5^Country of Birth^LN||USA^United States^ISO3166_1||||||F", payload);
+OBX|1|CWE|78746-5^Country of Birth^LN||USA^United States^ISO3166_1||||||F", payload, ignoreCase: false, ignoreLineEndingDifferences: true);
             }
 
             Assert.True(metadata.MessageBatchPosition <= 3);
