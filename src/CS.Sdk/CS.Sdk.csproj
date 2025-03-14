@@ -11,8 +11,10 @@
     <NeutralLanguage>en-US</NeutralLanguage>
     <Company>U.S. Centers for Disease Control and Prevention</Company>
     <Title>SDK for Case Surveillance</Title>
-    <Description>SDK containing validators, transformers, and other tools for case surveillance data flows</Description>
-    <PackageDescription>SDK containing validators, transformers, and other tools for case surveillance data flows</PackageDescription>
+    <Description>SDK containing validators, transformers, and other tools for case surveillance data
+      flows</Description>
+    <PackageDescription>SDK containing validators, transformers, and other tools for case
+      surveillance data flows</PackageDescription>
     <PackageTags>hl7v2 conversion-library</PackageTags>
     <RepositoryType>git</RepositoryType>
     <PackageVersion>0.0.5</PackageVersion>
@@ -27,7 +29,7 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="All" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
-    <PackageReference Include="System.Text.Json" Version="8.0.2" />
+    <PackageReference Include="System.Text.Json" Version="8.0.5" />
     <PackageReference Include="Kodeistan.Hl7" Version="2.18.1" />
   </ItemGroup>
 
